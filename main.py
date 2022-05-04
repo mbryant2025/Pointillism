@@ -9,12 +9,12 @@ import time
 #PARAMETERS
 #=========================
 imsize = 128
-circle_count = 256
+circle_count = 512
 transparency = 0.8
 circle_size_factor = 16
 img = 'rick.png'
 
-population_size = 16
+population_size = 32
 generations = 2048
 mutation_rate = 0.025
 #=========================
@@ -42,7 +42,7 @@ suptitle = fig.suptitle(f'Generation: 0/{generations}')
 
 plt.subplot(2, 2, 1)
 plt.title("Current Best Individual")
-im = plt.imshow(display_pix, cmap='gray')
+#im = plt.imshow(display_pix, cmap='gray')
 frame = plt.gca()
 frame.axes.get_xaxis().set_visible(False)
 frame.axes.get_yaxis().set_visible(False)
@@ -63,8 +63,6 @@ graph, = plt.plot([])
 
 
 for g in range(generations):
-
-    print("Generation " + str(g+1))
     
     if first_itr:
         fit, indiv, random = run_gen(gather_random=True)
@@ -100,6 +98,8 @@ for g in range(generations):
         plt.savefig(f'gen{g+1}.png')
 
         plt.pause(0.05)
+
+    print(f'Generation: {g+1}\tMax fitness: {fit}')
 
 print("Done")
 plt.ioff()
