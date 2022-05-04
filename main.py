@@ -11,10 +11,10 @@ import time
 imsize = 128
 circle_count = 256
 transparency = 0.8
-circle_size_factor = 8
+circle_size_factor = 16
 img = 'rick.png'
 
-population_size = 8
+population_size = 16
 generations = 2048
 mutation_rate = 0.025
 #=========================
